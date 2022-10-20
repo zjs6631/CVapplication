@@ -11,7 +11,6 @@ class ContactInfo extends Component {
         email: "test",
         phone: "test",
       },
-      
     };
   }
   handleNameChange = (e) => {
@@ -52,19 +51,17 @@ class ContactInfo extends Component {
         email: this.contactInfo.email,
         phone: this.contactInfo.phone,
       },
-      
     });
   };
 
-  
   render() {
-    const { contactInfo} = this.state;
-    
+    const { contactInfo } = this.state;
+
     if (this.props.formShown) {
       return (
         <div className="contactDiv">
           <br></br>
-          
+
           <form id="contactInfoForm" onSubmit={this.onSubmitContact}>
             <label htmlFor="nameInput">Enter name: </label>
             <input
@@ -90,8 +87,6 @@ class ContactInfo extends Component {
               value={contactInfo.phone}
             />
             <br></br>
-            
-            
           </form>
         </div>
       );
@@ -101,7 +96,6 @@ class ContactInfo extends Component {
           <h3>{contactInfo.name}</h3>
           <h3>{contactInfo.email}</h3>
           <h3>{contactInfo.phone}</h3>
-          
         </div>
       );
     }

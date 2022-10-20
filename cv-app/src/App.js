@@ -13,8 +13,10 @@ class App extends Component {
     this.state = {
       contactFormShown: false,
       contactButtonText: "Edit",
-      educationFormShown: true,
-      educationButtonText: "Edit",
+      formShown: false,
+      addButtonText: "Add Experience",
+      editExp: false,
+      editExpBtnText: "Edit Experience",
       education: {
         university: "default",
         study: "default",
@@ -23,7 +25,6 @@ class App extends Component {
         id: uniqid(),
       },
       educationHistory: [],
-      workFormShown: true,
       workButtonText: "Edit",
       work: {
         company: "default",
@@ -33,12 +34,12 @@ class App extends Component {
           description: "task descript",
         },
         dateOfEmployment: "default",
+        id: uniqid(),
       },
       workHistory: [],
     };
 
     this.editContact = this.editContact.bind(this);
-    this.editEducation = this.editEducation.bind(this);
   }
 
   editContact = (e) => {
@@ -55,21 +56,36 @@ class App extends Component {
         contactButtonText: "Save",
       });
     }
-    console.log(this.state.contactFormShown);
   };
 
-  editEducation = (e) => {
+  addInfo = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
-      educationFormShown: !prevState.educationFormShown,
+      formShown: !prevState.formShown,
     }));
-    if (this.state.educationFormShown) {
+    if (this.state.formShown) {
       this.setState({
-        educationButtonText: "Edit",
+        addButtonText: "Add Experience",
       });
     } else {
       this.setState({
-        educationButtonText: "Save",
+        addButtonText: "Save",
+      });
+    }
+  };
+
+  editExp = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => ({
+      editExp: !prevState.editExp,
+    }));
+    if (this.state.editExp) {
+      this.setState({
+        editExpBtnText: "Edit Experience",
+      });
+    } else {
+      this.setState({
+        editExpBtnText: "Save",
       });
     }
   };
@@ -135,9 +151,11 @@ class App extends Component {
         gpa: "default",
         id: uniqid(),
       },
-      educationFormShown: true,
+      formShown: true,
     });
   };
+
+  
 
   handleCompanyChange = (e) => {
     this.setState({
@@ -149,7 +167,7 @@ class App extends Component {
           description: this.state.work.task.description,
         },
         dateOfEmployment: this.state.work.dateOfEmployment,
-      }
+      },
     });
   };
 
@@ -163,7 +181,7 @@ class App extends Component {
           description: this.state.work.task.description,
         },
         dateOfEmployment: this.state.work.dateOfEmployment,
-      }
+      },
     });
   };
 
@@ -177,7 +195,7 @@ class App extends Component {
           description: e.target.value,
         },
         dateOfEmployment: this.state.work.dateOfEmployment,
-      }
+      },
     });
   };
 
@@ -191,7 +209,7 @@ class App extends Component {
           description: this.state.work.task.description,
         },
         dateOfEmployment: e.target.value,
-      }
+      },
     });
   };
 
@@ -207,27 +225,25 @@ class App extends Component {
           description: "default",
         },
         dateOfEmployment: "default",
-      }
-    })
-  }
+        id: uniqid(),
+      },
+    });
+  };
 
   render() {
-    const {
-      education,
-      work,
-    } = this.state;
-    if (this.state.educationFormShown) {
+    const { education, work } = this.state;
+    if (this.state.formShown) {
       return (
         <div>
           <ContactInfo formShown={this.state.contactFormShown} />
           <button id="editBtn" onClick={this.editContact}>
             {this.state.contactButtonText}
           </button>
-          <div
-            className="educationFormContainer"
-            
-          >
-            <form className="educationForm" onSubmit={this.onEducationFormSubmit}>
+          <div className="educationFormContainer">
+            <form
+              className="educationForm"
+              onSubmit={this.onEducationFormSubmit}
+            >
               <label htmlFor="uniInput">Enter university: </label>
               <input
                 type="text"
@@ -264,27 +280,129 @@ class App extends Component {
               <button type="submit">Add Education</button>
             </form>
           </div>
-          <Education educationArr={this.state.educationHistory} /><br></br>
+          <Education educationArr={this.state.educationHistory} />
+          <br></br>
 
           <div className="workFormContainer">
             <form className="workForm" onSubmit={this.onWorkFormSubmit}>
               <label htmlFor="companyInput">Enter company: </label>
-              <input type="text" id="companyInput" onChange={this.handleCompanyChange} value={work.company}/><br></br>
+              <input
+                type="text"
+                id="companyInput"
+                onChange={this.handleCompanyChange}
+                value={work.company}
+              />
+              <br></br>
               <label htmlFor="titleInput">Enter job title: </label>
-              <input type="text" id="titleInput" onChange={this.handleTitleChange} value={work.title}/><br></br>
+              <input
+                type="text"
+                id="titleInput"
+                onChange={this.handleTitleChange}
+                value={work.title}
+              />
+              <br></br>
               <label htmlFor="tasksInput">Enter main tasks: </label>
-              <input type="text" id="tasksInput" onChange={this.handleTaskChange} value={work.task.description}/><br></br>
-              <label htmlFor="dateOfEmployment">Enter date range of employment: </label>
-              <input type="text" id="dateOfEmploymentInput" onChange={this.handleDateOfEmploymentChange} value={work.dateOfEmployment}/><br></br>
+              <input
+                type="text"
+                id="tasksInput"
+                onChange={this.handleTaskChange}
+                value={work.task.description}
+              />
+              <br></br>
+              <label htmlFor="dateOfEmployment">
+                Enter date range of employment:{" "}
+              </label>
+              <input
+                type="text"
+                id="dateOfEmploymentInput"
+                onChange={this.handleDateOfEmploymentChange}
+                value={work.dateOfEmployment}
+              />
+              <br></br>
 
               <button type="submit">Add Employment</button>
             </form>
           </div>
-          <WorkExp workArr={this.state.workHistory}/><br></br>
+          <WorkExp workArr={this.state.workHistory} />
+          <br></br>
+          <button id="addBtn" onClick={this.addInfo}>
+            {this.state.addButtonText}
+          </button>
+          <button id="editExpBtn" onClick={this.editExp}>
+            {this.state.editExpBtnText}
+          </button>
+        </div>
+      );
+    } else if (this.state.editExp) {
+      return (
+        <div>
+          {this.state.educationHistory.map((education) => {
+            return(
+            <form
+              className="educationForm"
+              key={education.id}
+            >
+              <label htmlFor="uniInput">{education.university}</label>
+              <input
+                type="text"
+                id="uniInput"
+                onChange={this.handleUniChange}
+                defaultValue={education.university}
+              />
+              <br></br>
+              <label htmlFor="studyInput">Enter program of study: </label>
+              <input
+                type="text"
+                id="studyInput"
+                onChange={this.handleStudyChange}
+                defaultValue={education.study}
+              />
+              <br></br>
+              <label htmlFor="dateOfStudyInput">Enter date of study: </label>
+              <input
+                type="text"
+                id="dateOfStudyInput"
+                onChange={this.handleDateOfStudyChange}
+                defaultValue={education.dateOfStudy}
+              />
+              <br></br>
+              <label htmlFor="gpaInput">Enter GPA: </label>
+              <input
+                type="text"
+                id="gpaInput"
+                onChange={this.handleGpaChange}
+                defaultValue={education.gpa}
+              />
+              <br></br>
+
+              
+            </form>
+            )
+          })}
+          <button type="submit" id="editExpBtn" onClick={this.editExp}>
+            {this.state.editExpBtnText}
+          </button>
         </div>
       );
     } else {
-      return null;
+      return (
+        <div>
+          <ContactInfo formShown={this.state.contactFormShown} />
+          <button id="editBtn" onClick={this.editContact}>
+            {this.state.contactButtonText}
+          </button>
+          <Education educationArr={this.state.educationHistory} />
+          <br></br>
+          <WorkExp workArr={this.state.workHistory} />
+          <br></br>
+          <button id="addBtn" onClick={this.addInfo}>
+            {this.state.addButtonText}
+          </button>
+          <button id="editExpBtn" onClick={this.editExp}>
+            {this.state.editExpBtnText}
+          </button>
+        </div>
+      );
     }
   }
 }

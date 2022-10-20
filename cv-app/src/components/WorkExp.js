@@ -11,7 +11,7 @@ class WorkExp extends Component {
             <div>
                 {this.props.workArr.map((work) =>{
                     return(
-                        <p>
+                        <p key={work.id}>
                             {work.company}
                             <br></br>
                             {work.title}
