@@ -25,6 +25,7 @@ class App extends Component {
         id: uniqid(),
       },
       educationHistory: [],
+      updateEducationArr: [],
       workButtonText: "Edit",
       work: {
         company: "default",
@@ -155,8 +156,6 @@ class App extends Component {
     });
   };
 
-  
-
   handleCompanyChange = (e) => {
     this.setState({
       work: {
@@ -227,6 +226,30 @@ class App extends Component {
         dateOfEmployment: "default",
         id: uniqid(),
       },
+    });
+  };
+
+  handleUniUpdate = (e) => {
+    let updateArr = this.state.educationHistory.slice();
+    console.log(e.target.className);
+    const indexOfTarget = updateArr
+      .map((education) => education.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);
+    
+    editRecord = {
+      
+        university: e.target.value,
+        study: editRecord[0].study,
+        dateOfStudy: editRecord[0].dateOfStudy,
+        gpa: editRecord[0].gpa,
+        id: editRecord[0].id,
+      
+    };
+
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      educationHistory: updateArr,
     });
   };
 
@@ -328,56 +351,53 @@ class App extends Component {
           <button id="addBtn" onClick={this.addInfo}>
             {this.state.addButtonText}
           </button>
-          <button id="editExpBtn" onClick={this.editExp}>
-            {this.state.editExpBtnText}
-          </button>
         </div>
       );
     } else if (this.state.editExp) {
       return (
         <div>
           {this.state.educationHistory.map((education) => {
-            return(
-            <form
-              className="educationForm"
-              key={education.id}
-            >
-              <label htmlFor="uniInput">{education.university}</label>
-              <input
-                type="text"
-                id="uniInput"
-                onChange={this.handleUniChange}
-                defaultValue={education.university}
-              />
-              <br></br>
-              <label htmlFor="studyInput">Enter program of study: </label>
-              <input
-                type="text"
-                id="studyInput"
-                onChange={this.handleStudyChange}
-                defaultValue={education.study}
-              />
-              <br></br>
-              <label htmlFor="dateOfStudyInput">Enter date of study: </label>
-              <input
-                type="text"
-                id="dateOfStudyInput"
-                onChange={this.handleDateOfStudyChange}
-                defaultValue={education.dateOfStudy}
-              />
-              <br></br>
-              <label htmlFor="gpaInput">Enter GPA: </label>
-              <input
-                type="text"
-                id="gpaInput"
-                onChange={this.handleGpaChange}
-                defaultValue={education.gpa}
-              />
-              <br></br>
-
-              
-            </form>
-            )
+            return (
+              <form className="educationUpdateForm" key={education.id}>
+                <label htmlFor="uniUpdateInput">{education.university}</label>
+                <input
+                  type="text"
+                  id="uniUpdateInput"
+                  className={education.id}
+                  onChange={this.handleUniUpdate}
+                  defaultValue={education.university}
+                />
+                <br></br>
+                <label htmlFor="studyUpdateInput">
+                  Enter program of study:{" "}
+                </label>
+                <input
+                  type="text"
+                  id="studyUpdateInput"
+                  onChange={this.handleStudyUpdate}
+                  defaultValue={education.study}
+                />
+                <br></br>
+                <label htmlFor="dateOfStudyUpdateInput">
+                  Enter date of study:{" "}
+                </label>
+                <input
+                  type="text"
+                  id="dateOfStudyUpdateInput"
+                  onChange={this.handleDateOfStudyUpdate}
+                  defaultValue={education.dateOfStudy}
+                />
+                <br></br>
+                <label htmlFor="gpaUpdateInput">Enter GPA: </label>
+                <input
+                  type="text"
+                  id="gpaUpdateInput"
+                  onChange={this.handleGpaUpdate}
+                  defaultValue={education.gpa}
+                />
+                <br></br>
+              </form>
+            );
           })}
           <button type="submit" id="editExpBtn" onClick={this.editExp}>
             {this.state.editExpBtnText}
