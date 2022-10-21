@@ -231,12 +231,11 @@ class App extends Component {
 
   handleUniUpdate = (e) => {
     let updateArr = this.state.educationHistory.slice();
-    console.log(e.target.className);
+    
     const indexOfTarget = updateArr
       .map((education) => education.id)
       .indexOf(e.target.className);
-    let editRecord = updateArr.splice(indexOfTarget, 1);
-    
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
     editRecord = {
       
         university: e.target.value,
@@ -246,12 +245,173 @@ class App extends Component {
         id: editRecord[0].id,
       
     };
-
     updateArr.splice(indexOfTarget, 0, editRecord);
     this.setState({
       educationHistory: updateArr,
     });
   };
+
+  handleStudyUpdate = (e) => {
+    let updateArr = this.state.educationHistory.slice();
+    
+    const indexOfTarget = updateArr
+      .map((education) => education.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
+    editRecord = {
+      
+        university: editRecord[0].university,
+        study: e.target.value,
+        dateOfStudy: editRecord[0].dateOfStudy,
+        gpa: editRecord[0].gpa,
+        id: editRecord[0].id,
+      
+    };
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      educationHistory: updateArr,
+    });
+  }
+
+  handleDateOfStudyUpdate = (e) => {
+    let updateArr = this.state.educationHistory.slice();
+    
+    const indexOfTarget = updateArr
+      .map((education) => education.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
+    editRecord = {
+      
+        university: editRecord[0].university,
+        study: editRecord[0].study,
+        dateOfStudy: e.target.value,
+        gpa: editRecord[0].gpa,
+        id: editRecord[0].id,
+      
+    };
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      educationHistory: updateArr,
+    });
+  }
+
+  handleGpaUpdate = (e) => {
+    let updateArr = this.state.educationHistory.slice();
+    
+    const indexOfTarget = updateArr
+      .map((education) => education.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
+    editRecord = {
+      
+        university: editRecord[0].university,
+        study: editRecord[0].study,
+        dateOfStudy: editRecord[0].dateOfStudy,
+        gpa: e.target.value,
+        id: editRecord[0].id,
+      
+    };
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      educationHistory: updateArr,
+    });
+  }
+
+  handleCompanyUpdate = (e) => {
+    let updateArr = this.state.workHistory.slice();
+    
+    const indexOfTarget = updateArr
+      .map((work) => work.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
+    editRecord = {
+      
+        company: e.target.value,
+        title: editRecord[0].title,
+        task: {
+          description: editRecord[0].task.description,
+        },
+        dateOfEmployment: editRecord[0].dateOfEmployment,
+        id: editRecord[0].id,
+      
+    };
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      workHistory: updateArr,
+    });
+  }
+
+  handleTitleUpdate = (e) => {
+    let updateArr = this.state.workHistory.slice();
+    
+    const indexOfTarget = updateArr
+      .map((work) => work.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
+    editRecord = {
+      
+        company: editRecord[0].company,
+        title: e.target.value,
+        task: {
+          description: editRecord[0].task.description,
+        },
+        dateOfEmployment: editRecord[0].dateOfEmployment,
+        id: editRecord[0].id,
+      
+    };
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      workHistory: updateArr,
+    });
+  }
+
+  handleTaskUpdate = (e) => {
+    let updateArr = this.state.workHistory.slice();
+    
+    const indexOfTarget = updateArr
+      .map((work) => work.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
+    editRecord = {
+      
+        company: editRecord[0].company,
+        title: editRecord[0].title,
+        task: {
+          description: e.target.value,
+        },
+        dateOfEmployment: editRecord[0].dateOfEmployment,
+        id: editRecord[0].id,
+      
+    };
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      workHistory: updateArr,
+    });
+  }
+
+  handleDateOfEmploymentUpdate = (e) =>{
+    let updateArr = this.state.workHistory.slice();
+    
+    const indexOfTarget = updateArr
+      .map((work) => work.id)
+      .indexOf(e.target.className);
+    let editRecord = updateArr.splice(indexOfTarget, 1);   
+    editRecord = {
+      
+        company: editRecord[0].company,
+        title: editRecord[0].title,
+        task: {
+          description: editRecord[0].task.description,
+        },
+        dateOfEmployment: e.target.value,
+        id: editRecord[0].id,
+      
+    };
+    updateArr.splice(indexOfTarget, 0, editRecord);
+    this.setState({
+      workHistory: updateArr,
+    });
+  }
 
   render() {
     const { education, work } = this.state;
@@ -359,7 +519,7 @@ class App extends Component {
           {this.state.educationHistory.map((education) => {
             return (
               <form className="educationUpdateForm" key={education.id}>
-                <label htmlFor="uniUpdateInput">{education.university}</label>
+                <label htmlFor="uniUpdateInput">Enter university: </label>
                 <input
                   type="text"
                   id="uniUpdateInput"
@@ -398,6 +558,47 @@ class App extends Component {
                 <br></br>
               </form>
             );
+          })}
+          {this.state.workHistory.map((work) =>{
+            return(
+            <form className="workUpdateForm" key={work.id}>
+            <label htmlFor="companyUpdateInput">Enter company: </label>
+            <input
+              type="text"
+              id="companyUpdateInput"
+              onChange={this.handleCompanyUpdate}
+              value={work.company}
+              className={work.id}
+            />
+            <br></br>
+            <label htmlFor="titleUpdateInput">Enter job title: </label>
+            <input
+              type="text"
+              id="titleUpdateInput"
+              onChange={this.handleTitleUpdate}
+              value={work.title}
+            />
+            <br></br>
+            <label htmlFor="tasksUpdateInput">Enter main tasks: </label>
+            <input
+              type="text"
+              id="tasksUpdateInput"
+              onChange={this.handleTaskUpdate}
+              value={work.task.description}
+            />
+            <br></br>
+            <label htmlFor="dateOfEmploymentUpdate">
+              Enter date range of employment:{" "}
+            </label>
+            <input
+              type="text"
+              id="dateOfEmploymentUpdate"
+              onChange={this.handleDateOfEmploymentUpdate}
+              value={work.dateOfEmployment}
+            />
+            <br></br>
+          </form>
+            )
           })}
           <button type="submit" id="editExpBtn" onClick={this.editExp}>
             {this.state.editExpBtnText}
