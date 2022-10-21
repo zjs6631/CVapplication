@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./styles/App.css";
+import "./styles/ContactInfo.css";
 import uniqid from "uniqid";
 import React, { Component } from "react";
 import ContactInfo from "./components/ContactInfo";
@@ -43,6 +44,7 @@ class App extends Component {
     this.editContact = this.editContact.bind(this);
   }
 
+  
   editContact = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
@@ -138,6 +140,8 @@ class App extends Component {
       },
     });
   };
+
+  
 
   onEducationFormSubmit = (e) => {
     e.preventDefault();
@@ -607,11 +611,12 @@ class App extends Component {
       );
     } else {
       return (
-        <div>
+        <div id="App">
           <ContactInfo formShown={this.state.contactFormShown} />
           <button id="editBtn" onClick={this.editContact}>
             {this.state.contactButtonText}
           </button>
+          <h3 id="educationHeader">Education: </h3>
           <Education educationArr={this.state.educationHistory} />
           <br></br>
           <WorkExp workArr={this.state.workHistory} />

@@ -8,18 +8,21 @@ class Education extends Component {
 
   render() {
     return (
-      <div>
+      <div id="allEducation">
         {this.props.educationArr.map((education) => {
           return (
-            <p key={education.id}>
+            <div key={education.id} className="eduDescription">
+            <p className="uniName">
               {education.university}
-              <br></br>
-              {education.study}
-              <br></br>
-              {education.dateOfStudy}
-              <br></br>
-              {education.gpa}
             </p>
+            
+            <p className="majorName">
+              {education.study}<br></br>   gpa: {education.gpa}  
+              <br></br>completed: {education.dateOfStudy} 
+            </p>
+            
+            
+            </div>
           );
         })}
       </div>

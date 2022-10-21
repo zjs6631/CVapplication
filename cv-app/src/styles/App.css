@@ -1,0 +1,53 @@
+#App{
+    font-family: 'Times New Roman', Times, serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr 5fr;
+}
+
+#contactDiv{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#editBtn{
+    width: fit-content;
+    height: fit-content;
+    z-index: 3;
+    grid-row-start: 1;
+    grid-column-start: 2;
+    justify-self: end;
+    align-self: center;
+    margin-right: 10%;
+}
+
+#educationHeader{
+    font-size: 20px;
+    font-weight: 300;
+    font-weight: bold;
+    padding-left: 15%;
+}
+
+.uniName{
+    font-size: 20px;
+    font-weight: bolder;
+    
+}
+
+.majorName{
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.eduDescription{
+    padding-left: 15%;
+}
+
+#allEducation{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

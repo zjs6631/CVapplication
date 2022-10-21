@@ -7,9 +7,9 @@ class ContactInfo extends Component {
 
     this.state = {
       contactInfo: {
-        name: "test",
-        email: "test",
-        phone: "test",
+        name: "Zachary Smith",
+        email: "ZacharyJonesSmith@gmail.com",
+        phone: "(910)-660-1677",
       },
     };
   }
@@ -92,10 +92,13 @@ class ContactInfo extends Component {
       );
     } else {
       return (
-        <div className="contactDiv">
-          <h3>{contactInfo.name}</h3>
-          <h3>{contactInfo.email}</h3>
-          <h3>{contactInfo.phone}</h3>
+        <div id="contactDiv">
+          <h3 id="contactName">{contactInfo.name}</h3>
+          <div id="contactDetails">
+            <h3 id="contactMe">Contact me: </h3>
+            <h3 id="contactEmail">email: {contactInfo.email}</h3>
+            <h3 id="contactPhone">phone: {contactInfo.phone}</h3>
+          </div>
         </div>
       );
     }
