@@ -1,13 +1,32 @@
-#contactDiv {
-    text-align: center;
+#contactDiv{
     font-family: 'Times New Roman', Times, serif;
-    grid-column-start: 1fr;
-    grid-column-end: 3fr;
-    grid-row-start: 1fr;
-    grid-row-end: 2fr;
+    font-size: 14px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: rgb(20, 20, 112);
+    color: white;
+    padding-left: 20px;
 }
 
-#contactName{
-    font-size: 40px;
+
+
+#contactHeader{
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contactHeader{
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+#contactDiv p{
+    line-height: 10px;
 }
 

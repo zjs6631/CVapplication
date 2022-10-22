@@ -1,0 +1,44 @@
+#allEducation {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  background-color: rgb(20,20,112);
+  color: white;
+  padding-left: 20px;
+}
+
+#educationHeader {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.gradYear {
+  font-style: italic;
+}
+.majorgpa {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.major {
+  font-weight: bold;
+}
+
+.gpa{
+    font-style: italic;
+    justify-self: end;
+}
+
+#allEducation p {
+  line-height: 0px;
+}
+
+.eduDescription{
+    padding-bottom: 10px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import App from "../App";
+import NameHeader from "./NameHeader";
 
 class ContactInfo extends Component {
   constructor(props) {
@@ -93,12 +94,15 @@ class ContactInfo extends Component {
     } else {
       return (
         <div id="contactDiv">
-          <h3 id="contactName">{contactInfo.name}</h3>
-          <div id="contactDetails">
-            <h3 id="contactMe">Contact me: </h3>
-            <h3 id="contactEmail">email: {contactInfo.email}</h3>
-            <h3 id="contactPhone">phone: {contactInfo.phone}</h3>
+          <div id="contactHeader">
+          <p>Contact</p>
           </div>
+          <p className="contactHeader">Name</p>
+          <p id="contactName">{contactInfo.name}</p>
+          <p className="contactHeader">Email</p>
+          <p id="contactEmail">{contactInfo.email}</p>
+          <p className="contactHeader">Phone</p>
+          <p id="contactPhone">{contactInfo.phone}</p>
         </div>
       );
     }

@@ -1,53 +1,80 @@
 #App{
     font-family: 'Times New Roman', Times, serif;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 5fr 5fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-#contactDiv{
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-
-#editBtn{
-    width: fit-content;
-    height: fit-content;
-    z-index: 3;
-    grid-row-start: 1;
+.headerName{
     grid-column-start: 2;
-    justify-self: end;
-    align-self: center;
-    margin-right: 10%;
-}
-
-#educationHeader{
-    font-size: 20px;
-    font-weight: 300;
-    font-weight: bold;
-    padding-left: 15%;
-}
-
-.uniName{
-    font-size: 20px;
-    font-weight: bolder;
+    padding-left: 20px;
     
 }
 
-.majorName{
-    font-size: 15px;
-    font-weight: bold;
-    font-style: italic;
+
+
+#editBtn{
+    width: 20px;
+    height: 20px;
+    z-index: 3;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-self: end;
+    align-self: flex-end;
+    margin-right: 10%;
+    background-color: rgb(20, 20, 112);
+    color: white;
+    border-style: none;
+    
 }
 
-.eduDescription{
-    padding-left: 15%;
+#editBtn:hover{
+    background-color: rgb(33, 33, 137);
+    
 }
 
-#allEducation{
+.buttonContainer{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    z-index: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    background-color: rgb(20, 20, 112);
+    width: 100%;
+    height: auto;
+}
+
+.buttonContainer button{
+    text-align: center;
+    border-style: none;
+    background-color: rgb(20, 20, 112);
+    color: white;
+}
+
+#addBtn:hover{
+    background-color: rgb(33, 33, 137);
+}
+
+#editExpBtn:hover{
+    background-color: rgb(33, 33, 137);
+}
+
+#addBtn{
+    width: 20px;
+    height: 20px;
+}
+
+#editExpBtn{
+    width: 20px;
+    height: 20px;
+}
+
+#profilePic{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: white;
+    justify-self: center;
+    align-self: center;
 }

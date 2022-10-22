@@ -1,0 +1,45 @@
+.employmentHistory{
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  padding-left: 20px;
+}
+
+.employmentHistory p{
+    line-height: 12px;
+}
+
+#workHeader {
+  display: flex;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  align-items: center;
+}
+
+.yearsEmployed{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.companyName{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.jobTitle{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.workDescription{
+    padding-bottom: 10px;
+}
