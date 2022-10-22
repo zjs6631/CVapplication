@@ -405,11 +405,7 @@ class App extends Component {
     const { education, work } = this.state;
     if (this.state.formShown) {
       return (
-        <div>
-          <ContactInfo formShown={this.state.contactFormShown} />
-          <button id="editBtn" onClick={this.editContact}>
-            {this.state.contactButtonText}
-          </button>
+        <div className="addingForm">
           <div className="educationFormContainer">
             <form
               className="educationForm"
@@ -451,7 +447,7 @@ class App extends Component {
               <button type="submit">Add Education</button>
             </form>
           </div>
-          <Education educationArr={this.state.educationHistory} />
+          
           <br></br>
 
           <div className="workFormContainer">
@@ -481,7 +477,7 @@ class App extends Component {
               />
               <br></br>
               <label htmlFor="dateOfEmployment">
-                Enter date range of employment:{" "}
+                Enter date of employment:{" "}
               </label>
               <input
                 type="text"
@@ -494,7 +490,7 @@ class App extends Component {
               <button type="submit">Add Employment</button>
             </form>
           </div>
-          <WorkExp workArr={this.state.workHistory} />
+          
           <br></br>
           <button id="addBtn" onClick={this.addInfo}>
             {this.state.addButtonText}
@@ -613,12 +609,14 @@ class App extends Component {
           <WorkExp workArr={this.state.workHistory} />
           <br></br>
           <div className="buttonContainer">
+            <div>
             <button id="addBtn" onClick={this.addInfo}>
               {this.state.addButtonText}
             </button>
             <button id="editExpBtn" onClick={this.editExp}>
               {this.state.editExpBtnText}
             </button>
+            </div>
             <div id="profilePic"></div>
           </div>
         </div>
