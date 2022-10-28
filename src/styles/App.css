@@ -1,8 +1,13 @@
 #App{
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Times New Roman', Times, serif;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    
 }
 
 .headerName{
@@ -43,6 +48,8 @@
     background-color: rgb(20, 20, 112);
     width: 100%;
     height: auto;
+    padding: 0;
+    margin: 0;
 }
 
 .buttonContainer button{
@@ -77,4 +84,33 @@
     background-color: white;
     justify-self: center;
     align-self: center;
+    
+}
+
+.addingForm{
+    display: grid;
+    background-color: rgb(20, 20, 112);
+    color: white;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+
+
+.educationForm{
+    display: grid;
+    width: fit-content;
+}
+
+.educationForm input{
+    justify-self: center;
+}
+
+.workForm{
+    display: grid;
+    width: fit-content;
+}
+
+#tasksInput{
+    height: 50px;
 }

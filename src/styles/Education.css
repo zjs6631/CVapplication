@@ -33,6 +33,7 @@
 .gpa{
     font-style: italic;
     justify-self: end;
+    padding-right: 10px;
 }
 
 #allEducation p {
