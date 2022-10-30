@@ -37,9 +37,11 @@
 }
 
 #allEducation p {
-  line-height: 0px;
+  line-height: 1;
 }
 
 .eduDescription{
     padding-bottom: 10px;
+    font-size: 12px;
+    overflow-wrap: break-word;
 }

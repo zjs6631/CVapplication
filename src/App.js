@@ -58,7 +58,7 @@ class App extends Component {
       });
     } else {
       this.setState({
-        contactButtonText: "S",
+        contactButtonText: "Save",
       });
     }
   };
@@ -74,7 +74,7 @@ class App extends Component {
       });
     } else {
       this.setState({
-        addButtonText: "S",
+        addButtonText: "Save",
       });
     }
   };
@@ -90,7 +90,7 @@ class App extends Component {
       });
     } else {
       this.setState({
-        editExpBtnText: "S",
+        editExpBtnText: "Save",
       });
     }
   };

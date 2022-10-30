@@ -16,11 +16,15 @@
     
 }
 
+.headerDescription{
+    padding-left: 20px;
+    
+}
 
 
 #editBtn{
-    width: 20px;
-    height: 20px;
+    width: fit-content;
+    height: auto;
     z-index: 3;
     grid-row-start: 2;
     grid-column-start: 1;
@@ -28,14 +32,15 @@
     justify-self: end;
     align-self: flex-end;
     margin-right: 10%;
-    background-color: rgb(20, 20, 112);
-    color: white;
+    background-color: whitesmoke;
+    color:rgb(20, 20, 112);
+    
     border-style: none;
     
 }
 
 #editBtn:hover{
-    background-color: rgb(33, 33, 137);
+    background-color: rgb(198, 189, 189);
     
 }
 
@@ -59,29 +64,24 @@
     color: white;
 }
 
-#addBtn:hover{
-    background-color: rgb(33, 33, 137);
-}
 
-#editExpBtn:hover{
-    background-color: rgb(33, 33, 137);
-}
 
 #addBtn{
-    width: 20px;
-    height: 20px;
+    width: fit-content;
+    height: auto;
 }
 
 #editExpBtn{
-    width: 20px;
-    height: 20px;
+    width: fit-content;
+    height: auto;
 }
 
 #profilePic{
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    background-color: white;
+    background-image: url("../images/me.jpg");
+    background-size: contain;
     justify-self: center;
     align-self: center;
     
@@ -102,6 +102,16 @@
     width: fit-content;
 }
 
+.educationForm button{
+    width: fit-content;
+    justify-self: center;
+
+}
+.educationFormContainer{
+    display: grid;
+    justify-items: center;
+}
+
 .educationForm input{
     justify-self: center;
 }
@@ -109,6 +119,16 @@
 .workForm{
     display: grid;
     width: fit-content;
+}
+
+.workForm button{
+    width: fit-content;
+    justify-self: center;
+}
+
+.workFormContainer{
+    display: grid;
+    justify-items: center;
 }
 
 #tasksInput{

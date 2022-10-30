@@ -60,7 +60,7 @@ class ContactInfo extends Component {
 
     if (this.props.formShown) {
       return (
-        <div className="contactDiv">
+        <div id="contactDiv">
           <br></br>
 
           <form id="contactInfoForm" onSubmit={this.onSubmitContact}>

@@ -11,7 +11,11 @@ class NameHeader extends Component {
 
   render() {
     
-    return <h1 className="headerName">Zachary Smith</h1>;
+    return <div><h1 className="headerName">Zachary Smith</h1>
+               <p className="headerDescription">This is a CV template created using React Components.<br></br>
+               The + and ... at the top left can be used to add education and experience. <br></br>
+               The ... in the Contact section can be used to edit contact information.</p>
+            </div>;
   }
 }
 
