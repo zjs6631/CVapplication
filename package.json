@@ -1,5 +1,5 @@
 {
-  "name": "cv-app",
+  "name": "cvapplication",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,5 +38,4 @@
     ]
   },
   "homepage": "https://zjs6631.github.io/CVapplication/"
-
 }
